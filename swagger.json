@@ -69,6 +69,41 @@
           }
         }
       }
+    },
+    "/health": {
+      "get": {
+        "summary": "Returns the health status of the service",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "API is running"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "example": "2025-07-16T09:02:13.282Z"
+                    },
+                    "environment": {
+                      "type": "string",
+                      "example": "staging"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
