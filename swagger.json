@@ -1,0 +1,74 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PayMongo Service API",
+    "version": "1.0.0",
+    "description": "API documentation for the PayMongo Service"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Returns a greeting message",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "Hello World!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/paymongo": {
+      "get": {
+        "summary": "Returns a mocked payment intent",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "mocked_payment_intent_id"
+                    },
+                    "amount": {
+                      "type": "integer",
+                      "example": 10000
+                    },
+                    "currency": {
+                      "type": "string",
+                      "example": "PHP"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "created"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "Error message"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
